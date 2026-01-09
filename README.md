@@ -1,6 +1,6 @@
 # Evvl Marketing Site
 
-Marketing site for [Evvl](https://evvl.com) - Compare AI models side by side.
+Marketing site for [Evvl](https://evvl.ai) - Compare AI models side by side.
 
 Built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com).
 
@@ -27,27 +27,27 @@ npm run preview # Preview production build
 **DNS Records** (at your domain registrar):
 
 ```
-# Marketing site (apex domain) - evvl.com
+# Marketing site (apex domain) - evvl.ai
 A     @       76.76.21.21
 
 # www redirect
 CNAME www     cname.vercel-dns.com.
 
-# App subdomain - app.evvl.com (separate Vercel project)
+# App subdomain - app.evvl.ai (separate Vercel project)
 CNAME app     cname.vercel-dns.com.
 ```
 
 **Vercel Domain Settings**:
 
-1. Marketing site project: Add `evvl.com` as primary domain
-2. App project: Add `app.evvl.com` as domain
+1. Marketing site project: Add `evvl.ai` as primary domain
+2. App project: Add `app.evvl.ai` as domain
 3. Vercel handles SSL automatically
 
 ## Architecture
 
 ```
-evvl.com           → This marketing site (Astro)
-app.evvl.com       → Evaluation app (Next.js, separate repo)
+evvl.ai           → This marketing site (Astro)
+app.evvl.ai       → Evaluation app (Next.js, separate repo)
 ```
 
 ## Pages
