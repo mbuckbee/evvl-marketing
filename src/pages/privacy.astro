@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy - Evvl" description="Privacy policy for Evvl web and desktop applications.">
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-gray-900">Evvl</a>
+      <div class="flex items-center gap-6">
+        <a href="/#features" class="text-sm text-gray-600 hover:text-gray-900">Features</a>
+        <a href="https://app.evvl.ai" class="text-sm font-medium bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+          Launch App
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-3xl mx-auto prose prose-gray">
+      <h1>Privacy Policy</h1>
+      <p class="text-sm text-gray-500">Last updated: January 2025</p>
+
+      <h2>Overview</h2>
+      <p>
+        Evvl is available as both a web application (<a href="https://app.evvl.ai">app.evvl.ai</a>) and a
+        downloadable desktop application. This privacy policy covers both versions.
+      </p>
+
+      <h2>Data We Collect</h2>
+      <h3>Web Application</h3>
+      <p>When using the web application:</p>
+      <ul>
+        <li><strong>API Keys:</strong> Your API keys are transmitted through our servers to reach AI providers (OpenAI, Anthropic, Google, OpenRouter). Keys are automatically redacted from all server logs and are never stored in any database.</li>
+        <li><strong>Prompts and Responses:</strong> Your prompts and AI-generated responses pass through our servers but are never logged or stored.</li>
+        <li><strong>Operational Logs:</strong> We maintain basic operational logs (provider name, model name, error types) for debugging purposes only. These logs contain no personal or sensitive data.</li>
+        <li><strong>Local Storage:</strong> All your evaluation data, history, ratings, and preferences are stored only in your browser's localStorage on your device.</li>
+      </ul>
+
+      <h3>Desktop Application</h3>
+      <p>When using the desktop application:</p>
+      <ul>
+        <li><strong>Direct API Calls:</strong> All API requests go directly from your computer to AI providers. No data passes through our servers.</li>
+        <li><strong>Local Storage:</strong> All data including API keys, prompts, responses, and evaluations are stored only on your device.</li>
+        <li><strong>No Telemetry:</strong> The desktop application does not send any usage data, analytics, or telemetry to us.</li>
+      </ul>
+
+      <h2>Third-Party AI Services</h2>
+      <p>
+        Evvl connects to third-party AI services including OpenAI, Anthropic, Google, and OpenRouter.
+        When you use these services through Evvl, your data is subject to those providers' respective
+        privacy policies:
+      </p>
+      <ul>
+        <li><a href="https://openai.com/privacy" target="_blank" rel="noopener">OpenAI Privacy Policy</a></li>
+        <li><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+        <li><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener">OpenRouter Privacy Policy</a></li>
+      </ul>
+
+      <h2>Data Security</h2>
+      <ul>
+        <li>All communications use HTTPS encryption</li>
+        <li>API keys are redacted from logs automatically</li>
+        <li>No user accounts or authentication data is collected</li>
+        <li>No cookies are used for tracking</li>
+      </ul>
+
+      <h2>Your Rights</h2>
+      <p>
+        Since we don't store your personal data on our servers, there is no data to request, modify,
+        or delete. Your locally stored data can be cleared by clearing your browser's localStorage
+        or uninstalling the desktop application.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this privacy policy from time to time. Changes will be posted on this page
+        with an updated revision date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions about this privacy policy, please open an issue on our
+        <a href="https://github.com/mbuckbee/evvl" target="_blank" rel="noopener">GitHub repository</a>.
+      </p>
+    </div>
+  </article>
+
+  <footer class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-gray-500">Evvl — Compare AI models side by side</div>
+      <div class="flex items-center gap-6 text-sm text-gray-500">
+        <a href="/privacy" class="hover:text-gray-700">Privacy</a>
+        <a href="/terms" class="hover:text-gray-700">Terms</a>
+        <a href="https://github.com/mbuckbee/evvl" class="hover:text-gray-700">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
