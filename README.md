@@ -1,46 +1,56 @@
-# Astro Starter Kit: Basics
+# Evvl Marketing Site
 
-```sh
-npm create astro@latest -- --template basics
+Marketing site for [Evvl](https://evvl.com) - Compare AI models side by side.
+
+Built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com).
+
+## Development
+
+```bash
+npm install
+npm run dev     # Start dev server at localhost:4321
+npm run build   # Build to ./dist/
+npm run preview # Preview production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Deployment
 
-## 🚀 Project Structure
+### Vercel Setup
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Connect this repo to a new Vercel project
+2. Framework preset: Astro
+3. No environment variables needed
+4. Deploy
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+### Domain Configuration
+
+**DNS Records** (at your domain registrar):
+
+```
+# Marketing site (apex domain) - evvl.com
+A     @       76.76.21.21
+
+# www redirect
+CNAME www     cname.vercel-dns.com.
+
+# App subdomain - app.evvl.com (separate Vercel project)
+CNAME app     cname.vercel-dns.com.
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+**Vercel Domain Settings**:
 
-## 🧞 Commands
+1. Marketing site project: Add `evvl.com` as primary domain
+2. App project: Add `app.evvl.com` as domain
+3. Vercel handles SSL automatically
 
-All commands are run from the root of the project, from a terminal:
+## Architecture
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```
+evvl.com           → This marketing site (Astro)
+app.evvl.com       → Evaluation app (Next.js, separate repo)
+```
 
-## 👀 Want to learn more?
+## Pages
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `/` - Landing page with features, how-it-works, privacy
+- `/download` - Desktop app download page (links to GitHub releases)
