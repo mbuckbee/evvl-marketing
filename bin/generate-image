@@ -1,0 +1,111 @@
+#!/bin/bash
+# Generate images using Google Vertex AI Imagen 3
+# Images are generated in 16:9 aspect ratio
+# Adapted from sci-marketing
+
+# Check arguments
+if [ -z "$1" ]; then
+  echo "Usage: bin/generate-image 'scene description' [output_filename.jpg]"
+  echo ""
+  echo "Example:"
+  echo "  bin/generate-image 'A developer comparing AI model outputs on multiple screens' hero.jpg"
+  echo ""
+  echo "The script generates high-quality images via Google Vertex AI Imagen 3."
+  echo ""
+  exit 1
+fi
+
+# Parse arguments - first arg is the scene description, last .jpg file is output
+SCENE_DESCRIPTION=""
+OUTPUT_FILE=""
+
+for arg in "$@"; do
+  if [[ "$arg" == *.jpg ]] || [[ "$arg" == *.jpeg ]] || [[ "$arg" == *.JPG ]] || [[ "$arg" == *.JPEG ]]; then
+    OUTPUT_FILE="$arg"
+  else
+    if [ -z "$SCENE_DESCRIPTION" ]; then
+      SCENE_DESCRIPTION="$arg"
+    fi
+  fi
+done
+
+# Validate we have a scene description
+if [ -z "$SCENE_DESCRIPTION" ]; then
+  echo "Error: Must provide a scene description"
+  exit 1
+fi
+
+# Add versioning to output filename
+if [ -n "$OUTPUT_FILE" ]; then
+  # Extract directory, base name, and extension
+  OUTPUT_DIR=$(dirname "$OUTPUT_FILE")
+  OUTPUT_BASE=$(basename "$OUTPUT_FILE" .jpg)
+
+  # Find the next version number
+  VERSION=1
+  while [ -f "${OUTPUT_DIR}/${OUTPUT_BASE}-v${VERSION}.jpg" ]; do
+    VERSION=$((VERSION + 1))
+  done
+
+  OUTPUT_FILE="${OUTPUT_DIR}/${OUTPUT_BASE}-v${VERSION}.jpg"
+else
+  # Default output file with timestamp
+  OUTPUT_FILE="generated-image-$(date +%s).jpg"
+fi
+
+# Build the full prompt
+FULL_PROMPT="${SCENE_DESCRIPTION}. High definition, professional quality. IMPORTANT: Do not include any text, labels, words, or written content in the image."
+
+# Configuration - set your project ID here or via environment variable
+PROJECT_ID="${VERTEX_PROJECT_ID:-api-project-680662334933}"
+REGION="${VERTEX_REGION:-us-east1}"
+MODEL="imagen-3.0-generate-002"
+
+echo "Generating image (16:9)..."
+echo "Scene: ${SCENE_DESCRIPTION:0:100}..." # Show first 100 chars
+echo ""
+
+# Get access token
+GCLOUD_PATH="${GCLOUD_PATH:-/opt/homebrew/share/google-cloud-sdk/bin/gcloud}"
+TOKEN=$($GCLOUD_PATH auth print-access-token 2>/dev/null)
+
+if [ -z "$TOKEN" ]; then
+  echo "Error: Not authenticated with gcloud"
+  echo "Run: $GCLOUD_PATH auth login"
+  exit 1
+fi
+
+# Aspect ratio - default to 16:9, use ASPECT_RATIO env var to override (e.g., "1:1" for square)
+ASPECT_RATIO="${ASPECT_RATIO:-16:9}"
+
+# Build JSON request
+REQUEST_BODY="{\"instances\":[{\"prompt\":\"$FULL_PROMPT\"}],\"parameters\":{\"sampleCount\":1,\"aspectRatio\":\"${ASPECT_RATIO}\"}}"
+
+# Make API request
+TEMP_REQUEST=$(mktemp)
+echo "$REQUEST_BODY" > "$TEMP_REQUEST"
+
+RESPONSE=$(curl -s -X POST \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${REGION}/publishers/google/models/${MODEL}:predict" \
+  -d "@$TEMP_REQUEST")
+
+rm -f "$TEMP_REQUEST"
+
+# Extract base64 image data
+IMAGE_DATA=$(echo "$RESPONSE" | jq -r '.predictions[0].bytesBase64Encoded' 2>/dev/null)
+
+if [ -z "$IMAGE_DATA" ] || [ "$IMAGE_DATA" = "null" ]; then
+  echo "Error: Failed to generate image"
+  echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
+  exit 1
+fi
+
+# Decode and save
+echo "$IMAGE_DATA" | base64 -d > "$OUTPUT_FILE"
+
+FILE_SIZE=$(du -h "$OUTPUT_FILE" | cut -f1)
+echo "Image generated successfully!"
+echo "Saved to: $OUTPUT_FILE"
+echo "File size: $FILE_SIZE"

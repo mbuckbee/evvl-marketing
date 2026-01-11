@@ -4,176 +4,292 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-gray-900">Evvl</a>
-      <div class="flex items-center gap-6">
-        <a href="#features" class="text-sm text-gray-600 hover:text-gray-900">Features</a>
-        <a href="#how-it-works" class="text-sm text-gray-600 hover:text-gray-900">How It Works</a>
-        <a href="#privacy" class="text-sm text-gray-600 hover:text-gray-900">Privacy</a>
-        <a href="https://app.evvl.ai" class="text-sm font-medium bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
-          Launch App
+  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-primary tracking-tight">evvl</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
+        <a href="#how-it-works" class="text-sm text-muted hover:text-primary transition-colors">How It Works</a>
+        <a href="/keys-and-calls" class="text-sm text-muted hover:text-primary transition-colors">Keys & Calls</a>
+        <a href="#faq" class="text-sm text-muted hover:text-primary transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Theme toggle -->
+        <button onclick="toggleTheme()" class="theme-toggle" aria-label="Toggle theme">
+          <svg class="w-5 h-5 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+        <a href="/download" class="hidden sm:block text-sm text-muted hover:text-primary transition-colors">Download</a>
+        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2.5 !px-5">
+          Start Free
         </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="pt-32 pb-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-        Compare AI Models<br />Side by Side
+  <section class="pt-32 pb-24 px-6 relative overflow-hidden radial-glow">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="eyebrow mb-6">AI Model Comparison Platform</div>
+
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.1] tracking-tight">
+        <span class="text-primary">Stop vibing with</span>
+        <br />
+        <span class="gradient-text">the wrong AI</span>
       </h1>
-      <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-        Stop guessing which AI is best for your task. Enter one prompt, get responses from GPT-4, Claude, Gemini, and more—displayed together for instant comparison.
+
+      <p class="text-xl md:text-2xl text-muted mb-12 max-w-3xl mx-auto leading-relaxed">
+        Compare GPT-4, Claude, Gemini, and 100+ models side by side.
+        One prompt. Every answer. Instant clarity.
       </p>
-      <div class="flex items-center justify-center gap-4">
-        <a href="https://app.evvl.ai" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
           Try the Web App
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
-        <a href="/download" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:border-gray-400 transition-colors">
-          Download Desktop App
+        <!-- OS-specific download button -->
+        <a href="/download" id="download-btn-mac" class="btn-secondary inline-flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download for Mac
+        </a>
+        <a href="/download" id="download-btn-windows" class="btn-secondary inline-flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.91V13.1l10 .15z"/>
+          </svg>
+          Download for Windows
         </a>
       </div>
-      <p class="text-sm text-gray-500 mt-4">Free to use. Bring your own API keys.</p>
+      <script>
+        // Detect OS and show appropriate download button
+        (function() {
+          const platform = navigator.platform.toLowerCase();
+          const userAgent = navigator.userAgent.toLowerCase();
+          const macBtn = document.getElementById('download-btn-mac');
+          const winBtn = document.getElementById('download-btn-windows');
+
+          const isMac = platform.includes('mac') || userAgent.includes('mac');
+          const isWindows = platform.includes('win') || userAgent.includes('win');
+
+          if (isMac) {
+            winBtn?.style.setProperty('display', 'none');
+          } else if (isWindows) {
+            macBtn?.style.setProperty('display', 'none');
+          } else {
+            // For Linux/other, default to showing Mac button
+            winBtn?.style.setProperty('display', 'none');
+          }
+        })();
+      </script>
+
+      <p class="text-sm text-faint">Free forever. Bring your own API keys.</p>
+    </div>
+
+    <!-- Hero screenshot -->
+    <div class="max-w-6xl mx-auto mt-20 px-6">
+      <div class="bento-card p-2 glow-purple">
+        <img
+          src="/evvl-screenshot.jpg"
+          alt="Evvl - AI Model Comparison Interface"
+          class="rounded-2xl w-full"
+        />
+      </div>
     </div>
   </section>
 
-  <!-- Problem/Solution -->
-  <section class="py-20 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">The Problem</h2>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">AI outputs are hard to evaluate in isolation</h3>
-          <p class="text-gray-600">
-            When you ask an AI model a question, it gives you an answer. But is it a <em>good</em> answer? Without a point of comparison, you're left guessing whether a different model might have done better.
-          </p>
+  <!-- Logo bar -->
+  <section class="py-16 px-6 border-y border-light">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-sm text-faint mb-10">Works with all major AI providers</p>
+      <div class="flex items-center justify-center gap-12 md:gap-16 flex-wrap provider-logos">
+        <div class="flex items-center gap-3">
+          <img src="/logos/dark/chatgpt.svg" alt="OpenAI" class="h-10" />
+          <span class="text-lg font-semibold text-primary">OpenAI</span>
         </div>
-        <div>
-          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">The Solution</h2>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Compare responses side by side</h3>
-          <p class="text-gray-600">
-            Enter a single prompt, select multiple AI providers, and instantly see how different models respond. Patterns emerge quickly—which models excel at what, which provide more detail, which understand your needs.
-          </p>
+        <div class="flex items-center gap-3">
+          <img src="/logos/dark/claude.svg" alt="Claude" class="h-10" />
+          <span class="text-lg font-semibold text-primary">Claude</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="/logos/dark/gemini.svg" alt="Google" class="h-10" />
+          <span class="text-lg font-semibold text-primary">Google</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="/logos/dark/meta.svg" alt="Meta" class="h-10" />
+          <span class="text-lg font-semibold text-primary">Meta</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="/logos/dark/openrouter.svg" alt="OpenRouter" class="h-10" />
+          <span class="text-lg font-semibold text-primary">OpenRouter</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="py-20 px-6">
-    <div class="max-w-6xl mx-auto">
+  <!-- Discoveries -->
+  <section class="py-24 px-6 relative">
+    <div class="absolute inset-0 radial-glow"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Everything you need to evaluate AI</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Built for developers, researchers, and anyone who needs to understand AI model capabilities.</p>
+        <div class="eyebrow mb-4">Real Discoveries</div>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">What will you find?</h2>
+        <p class="text-xl text-muted max-w-2xl mx-auto">Every comparison reveals something new about your AI stack.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
+      <!-- Discovery Grid -->
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"I found that GPT-4o-mini outperformed GPT-4o on our classification task—and it's 15x cheaper."</p>
+          <p class="text-primary/70 mb-5">Ran 200 product descriptions through both models. Mini scored 94% vs 4o's 91% on our labeled test set.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-1.jpg" alt="Tensor Flowella" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Tensor Flowella</span>
+              <span class="text-primary/60 text-sm">ML Engineer</span>
+            </div>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Side-by-Side Comparison</h3>
-          <p class="text-gray-600">View responses from multiple models in parallel. Compare quality, style, and accuracy at a glance.</p>
         </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Claude via OpenRouter was 40% faster than direct Anthropic API for our region."</p>
+          <p class="text-primary/70 mb-5">Same model, same prompts. OpenRouter's routing cut our p95 latency from 2.8s to 1.7s.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-2.jpg" alt="Cache Money" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Cache Money</span>
+              <span class="text-primary/60 text-sm">Senior Backend Engineer</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Gemini Flash with JSON mode had zero parsing errors. Without it, 12% failed."</p>
+          <p class="text-primary/70 mb-5">Structured output testing across 500 API calls.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-3.jpg" alt="Merge Conflict" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Merge Conflict</span>
+              <span class="text-primary/60 text-sm">Tech Lead</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Temperature 0.3 was the sweet spot—0 was too rigid, 0.7 too creative for our use case."</p>
+          <p class="text-primary/70 mb-5">Tested 5 temperature settings across our eval dataset.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-4.jpg" alt="React Andyson" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">React Andyson</span>
+              <span class="text-primary/60 text-sm">Full Stack Developer</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Adding 'think step by step' improved Claude's accuracy by 23% on math problems."</p>
+          <p class="text-primary/70 mb-5">Same prompt, with and without chain-of-thought. Night and day difference.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-5.jpg" alt="Adam Optimizer" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Adam Optimizer</span>
+              <span class="text-primary/60 text-sm">AI Researcher</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Our V3 prompt worked great on GPT-4o but terribly on Gemini. Now we use different prompts per model."</p>
+          <p class="text-primary/70 mb-5">Cross-model testing revealed prompts aren't one-size-fits-all.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-6.jpg" alt="Pandas Express" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Pandas Express</span>
+              <span class="text-primary/60 text-sm">Data Scientist</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"Llama 3.1 70B via OpenRouter matched Claude Sonnet quality at 1/3 the cost."</p>
+          <p class="text-primary/70 mb-5">Ran our full test suite. Open source is catching up fast.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-7.jpg" alt="Git Blame Gary" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Git Blame Gary</span>
+              <span class="text-primary/60 text-sm">Principal Engineer</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card p-8">
+          <p class="text-xl md:text-2xl font-medium text-primary mb-4 leading-snug">"max_tokens 1000 vs 4000 made no difference for summaries—we were overpaying."</p>
+          <p class="text-primary/70 mb-5">Config optimization saved us 20% on monthly API costs.</p>
+          <div class="flex items-center gap-3">
+            <img src="/avatars/dev-8.jpg" alt="Kube Goldberg" class="w-12 h-12 rounded-full object-cover" />
+            <div class="flex flex-col">
+              <span class="text-primary font-medium">Kube Goldberg</span>
+              <span class="text-primary/60 text-sm">Platform Engineer</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Multiple Providers</h3>
-          <p class="text-gray-600">OpenAI, Anthropic, Google Gemini, and 100+ models via OpenRouter—all in one interface.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Rate & Save</h3>
-          <p class="text-gray-600">Rate outputs with a 5-star system, add notes, and save evaluations for future reference.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Project Organization</h3>
-          <p class="text-gray-600">Organize prompts, model configs, and datasets into projects for systematic evaluation.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Performance Metrics</h3>
-          <p class="text-gray-600">See token counts, latency, and response times for each model to understand cost and speed tradeoffs.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Export Results</h3>
-          <p class="text-gray-600">Export your evaluations to JSON or CSV for further analysis or reporting.</p>
-        </div>
+      <!-- Bottom CTA Card -->
+      <div class="bento-card p-8 md:p-10 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">What will you discover?</h3>
+        <p class="text-muted mb-6 max-w-xl mx-auto">
+          Run your prompts across models, configs, and datasets. The insights are waiting.
+        </p>
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
+          Start Comparing
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section id="how-it-works" class="py-20 px-6 bg-gray-50">
+  <section id="how-it-works" class="py-24 px-6">
     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
-        <p class="text-gray-600">Get started in under a minute</p>
+      <div class="text-center mb-20">
+        <div class="eyebrow mb-4">How It Works</div>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">Get started in 60 seconds</h2>
       </div>
 
-      <div class="space-y-12">
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold">1</div>
+      <div class="space-y-6">
+        <div class="flex gap-6 items-start p-8 bento-card">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">1</div>
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Add your API keys</h3>
-            <p class="text-gray-600">Visit Settings and add API keys from OpenAI, Anthropic, Google, and/or OpenRouter. Keys are stored locally in your browser—never on our servers.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Add your API keys</h3>
+            <p class="text-muted">Connect OpenAI, Anthropic, Google, or OpenRouter. Keys are stored locally—never on our servers.</p>
           </div>
         </div>
 
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold">2</div>
+        <div class="flex gap-6 items-start p-8 bento-card">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">2</div>
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Enter your prompt</h3>
-            <p class="text-gray-600">Type or paste the prompt you want to test. Use variables like {"{{topic}}"} for batch testing with different inputs.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Write your prompt</h3>
+            <p class="text-muted">Enter the prompt you want to test. Add variables for batch testing across different inputs.</p>
           </div>
         </div>
 
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold">3</div>
+        <div class="flex gap-6 items-start p-8 bento-card">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">3</div>
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Select models & generate</h3>
-            <p class="text-gray-600">Choose which models to compare and click Generate. All responses are fetched in parallel for fast results.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Set model configs</h3>
+            <p class="text-muted">Choose which models to compare and configure parameters like temperature and max tokens.</p>
           </div>
         </div>
 
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold">4</div>
+        <div class="flex gap-6 items-start p-8 bento-card !border-[var(--color-accent)]/30">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">4</div>
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Compare & rate</h3>
-            <p class="text-gray-600">View responses side by side, rate them, add notes, and export your findings. Build intuition about which models work best for your use cases.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Compare</h3>
+            <p class="text-muted">View all responses side by side. Add notes, export results, and build intuition about which models work best.</p>
           </div>
         </div>
       </div>
@@ -181,44 +297,119 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Privacy -->
-  <section id="privacy" class="py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Privacy First</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Your data stays yours. We built Evvl with privacy as a core principle.</p>
-      </div>
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="bento-card p-10 md:p-16">
+        <div class="text-center mb-12">
+          <div class="eyebrow mb-4">Privacy First</div>
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">Your data stays yours</h2>
+          <p class="text-xl text-muted max-w-2xl mx-auto">We built Evvl with privacy as a core principle.</p>
+        </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="border border-gray-200 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-900 mb-2">Local Storage Only</h3>
-          <p class="text-gray-600 text-sm">API keys, prompts, outputs, and ratings are stored only in your browser's localStorage. Clear your browser data and it's gone.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-xl bg-card border border-base">
+            <h3 class="font-semibold text-primary mb-2">Local Storage Only</h3>
+            <p class="text-muted text-sm">API keys, prompts, and outputs are stored only in your browser. Clear your data and it's gone.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-card border border-base">
+            <h3 class="font-semibold text-primary mb-2">Keys Never Logged</h3>
+            <p class="text-muted text-sm">API keys are automatically redacted from all server logs. Prompts are never logged.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-card border border-base">
+            <h3 class="font-semibold text-primary mb-2">No Tracking</h3>
+            <p class="text-muted text-sm">We don't track usage, collect analytics about prompts, or store your results.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30">
+            <h3 class="font-semibold text-accent mb-2">Desktop App</h3>
+            <p class="text-muted text-sm">For maximum privacy—API calls go directly to providers with no intermediary.</p>
+          </div>
         </div>
-        <div class="border border-gray-200 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-900 mb-2">Keys Never Logged</h3>
-          <p class="text-gray-600 text-sm">API keys are automatically redacted from all server logs. Prompts and responses are never logged at all.</p>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-900 mb-2">No Tracking</h3>
-          <p class="text-gray-600 text-sm">We don't track your usage, collect analytics about your prompts, or store any information about your results.</p>
-        </div>
-        <div class="border border-gray-200 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-900 mb-2">Desktop Option</h3>
-          <p class="text-gray-600 text-sm">For maximum privacy, use the desktop app. Your API calls go directly to providers—no server intermediary at all.</p>
+
+        <div class="text-center mt-10">
+          <a href="/keys-and-calls" class="text-accent hover:underline text-sm">Learn how we handle API calls →</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="eyebrow mb-4">FAQ</div>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">Common questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">Is Evvl free to use?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">Yes, Evvl is completely free. You bring your own API keys and pay those providers directly for usage.</p>
+        </details>
+
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">Where are my API keys stored?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">Locally in your browser (web app) or on your machine (desktop app). Never on our servers. <a href="/keys-and-calls" class="text-accent hover:underline">Learn more.</a></p>
+        </details>
+
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">What's the difference between web and desktop?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">Same features. Desktop makes all API calls directly to providers. Web must proxy some calls (OpenAI, Anthropic) due to CORS. <a href="/keys-and-calls" class="text-accent hover:underline">See details.</a></p>
+        </details>
+
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">Which AI providers are supported?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">OpenAI, Anthropic, Google, and OpenRouter (which gives access to 100+ additional models including Llama and Mistral).</p>
+        </details>
+
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">Can I export my results?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">Yes. Export comparisons and notes to JSON or CSV for analysis, sharing, or archiving.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="py-20 px-6 bg-gray-900">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-white mb-4">Ready to compare?</h2>
-      <p class="text-gray-400 mb-8">Free to use. No signup required. Bring your own API keys.</p>
-      <div class="flex items-center justify-center gap-4">
-        <a href="https://app.evvl.ai" class="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+  <section class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 radial-glow"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+        Start comparing today
+      </h2>
+      <p class="text-xl text-muted mb-10">Free forever. No signup required. Bring your own API keys.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
           Launch Web App
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </a>
-        <a href="/download" class="inline-flex items-center gap-2 border border-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:border-gray-500 transition-colors">
+        <a href="/download" class="btn-secondary">
           Download Desktop
         </a>
       </div>
@@ -226,15 +417,39 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-gray-100">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-gray-500">
-        Evvl — Compare AI models side by side
+  <footer class="py-16 px-6 border-t border-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-5 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <a href="/" class="text-2xl font-bold text-primary tracking-tight mb-4 block">evvl</a>
+          <p class="text-faint max-w-xs">Compare AI models side by side. Find the best model for your specific use case.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary mb-4">Product</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#features" class="text-faint hover:text-primary transition-colors">Features</a></li>
+            <li><a href="#how-it-works" class="text-faint hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/download" class="text-faint hover:text-primary transition-colors">Download</a></li>
+            <li><a href="/keys-and-calls" class="text-faint hover:text-primary transition-colors">Keys & Calls</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary mb-4">Resources</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#faq" class="text-faint hover:text-primary transition-colors">FAQ</a></li>
+            <li><a href="https://github.com/mbuckbee/evvl" class="text-faint hover:text-primary transition-colors">GitHub</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary mb-4">Legal</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="/privacy" class="text-faint hover:text-primary transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-faint hover:text-primary transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="flex items-center gap-6 text-sm text-gray-500">
-        <a href="/privacy" class="hover:text-gray-700">Privacy</a>
-        <a href="/terms" class="hover:text-gray-700">Terms</a>
-        <a href="https://github.com/mbuckbee/evvl" class="hover:text-gray-700">GitHub</a>
+      <div class="pt-8 border-t border-light text-center text-faint text-sm">
+        &copy; 2025 Evvl. All rights reserved.
       </div>
     </div>
   </footer>

@@ -20,6 +20,24 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Theme detection - runs before page render to prevent flash -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else if (stored === 'light') {
+          document.documentElement.classList.add('light');
+        }
+        // If no stored preference, system preference is used via CSS media queries
+      })();
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -37,8 +55,51 @@ const {
       plausible.init()
     </script>
   </head>
-  <body class="bg-white text-gray-900 antialiased">
+  <body class="antialiased">
     <slot />
+
+    <!-- Theme toggle script -->
+    <script is:inline>
+      function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark') ||
+          (!html.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        if (isDark) {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.remove('light');
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+
+        updateToggleIcons();
+      }
+
+      function updateToggleIcons() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark') ||
+          (!html.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        document.querySelectorAll('.sun-icon').forEach(el => {
+          el.style.display = isDark ? 'block' : 'none';
+        });
+        document.querySelectorAll('.moon-icon').forEach(el => {
+          el.style.display = isDark ? 'none' : 'block';
+        });
+      }
+
+      // Initialize icons on load
+      document.addEventListener('DOMContentLoaded', updateToggleIcons);
+
+      // Also update if system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateToggleIcons);
+
+      // Expose toggle function globally
+      window.toggleTheme = toggleTheme;
+    </script>
   </body>
 </html>
 

@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Keys and Calls - Evvl" description="Learn how Evvl handles API calls to different providers in the web app versus the desktop app.">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-primary">Evvl</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
+        <a href="/#how-it-works" class="text-sm text-muted hover:text-primary transition-colors">How It Works</a>
+        <a href="/#privacy" class="text-sm text-muted hover:text-primary transition-colors">Privacy</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2.5 !px-5">
+          Launch App
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="pt-32 pb-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">Keys and Calls</h1>
+      <p class="text-xl text-muted leading-relaxed">
+        Understanding how Evvl handles your API keys and routes requests to AI providers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="py-12 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="bento-card p-8 mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-4">The Short Version</h2>
+        <p class="text-muted leading-relaxed mb-6">
+          Your API keys are <span class="text-primary font-semibold">always stored locally</span> in your browser or desktop app—never on our servers. However, due to browser security restrictions (CORS), some API calls in the web app must be proxied through our server. The desktop app makes all calls directly to providers.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-green-500/10 border border-green-500/30">
+            <div class="font-semibold text-green-600 dark:text-green-400 mb-1">Desktop App</div>
+            <div class="text-sm text-muted">All calls go directly to providers</div>
+          </div>
+          <div class="p-4 rounded-xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30">
+            <div class="font-semibold text-accent mb-1">Web App</div>
+            <div class="text-sm text-muted">Some calls proxied for CORS compatibility</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What is CORS -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">What is CORS?</h2>
+        <p class="text-muted leading-relaxed mb-4">
+          CORS (Cross-Origin Resource Sharing) is a browser security feature that prevents web pages from making requests to different domains. It's designed to protect users from malicious websites.
+        </p>
+        <p class="text-muted leading-relaxed">
+          When you use the Evvl web app at <code class="text-accent bg-[var(--color-bg-elevated)] px-2 py-1 rounded">app.evvl.ai</code>, your browser blocks direct requests to <code class="text-accent bg-[var(--color-bg-elevated)] px-2 py-1 rounded">api.openai.com</code> or <code class="text-accent bg-[var(--color-bg-elevated)] px-2 py-1 rounded">api.anthropic.com</code> unless those servers explicitly allow it. Some providers do, some don't.
+        </p>
+      </div>
+
+      <!-- Provider Breakdown -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-8">Provider Breakdown</h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-base">
+                <th class="text-left py-4 px-4 text-muted font-medium">Provider</th>
+                <th class="text-center py-4 px-4 text-muted font-medium">Web App</th>
+                <th class="text-center py-4 px-4 text-muted font-medium">Desktop App</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">OpenAI</div>
+                  <div class="text-sm text-faint">GPT-4, GPT-4o, o1, etc.</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    Proxied
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Anthropic</div>
+                  <div class="text-sm text-faint">Claude 3.5, Claude 3, etc.</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    Proxied
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Google</div>
+                  <div class="text-sm text-faint">Gemini Pro, Gemini Ultra, etc.</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">OpenRouter</div>
+                  <div class="text-sm text-faint">100+ models from various providers</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Direct
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- How Proxying Works -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">How Our Proxy Works</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bento-card p-6">
+            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-primary mb-3">Keys Are Never Stored</h3>
+            <p class="text-muted">Your API key is included in the request header, forwarded to the provider, and immediately discarded. We never write keys to disk, database, or logs.</p>
+          </div>
+
+          <div class="bento-card p-6">
+            <div class="w-12 h-12 rounded-xl bg-[var(--color-accent)]/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-primary mb-3">Prompts Are Not Logged</h3>
+            <p class="text-muted">We don't log, store, or inspect the content of your prompts or the responses from AI providers. The proxy is a pass-through only.</p>
+          </div>
+
+          <div class="bento-card p-6">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-primary mb-3">TLS End-to-End</h3>
+            <p class="text-muted">All connections use HTTPS/TLS encryption. Your data is encrypted in transit from your browser, through our proxy, to the AI provider.</p>
+          </div>
+
+          <div class="bento-card p-6">
+            <div class="w-12 h-12 rounded-xl bg-[var(--color-bg-elevated)] flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-primary mb-3">Open Source</h3>
+            <p class="text-muted">Our proxy code is open source. You can inspect exactly what happens to your requests and even self-host if you prefer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendation -->
+      <div class="bento-card p-8 !border-green-500/30 bg-gradient-to-br from-green-500/10 to-transparent">
+        <h2 class="text-2xl font-bold text-primary mb-4">Our Recommendation</h2>
+        <p class="text-muted leading-relaxed mb-6">
+          If you're working with sensitive data or want maximum privacy, use the <strong class="text-primary">desktop app</strong>. All API calls go directly from your machine to the providers with no intermediary.
+        </p>
+        <p class="text-muted leading-relaxed mb-6">
+          The web app is great for quick evaluations and when you're on a machine where you can't install software. The proxy exists solely to work around browser limitations.
+        </p>
+        <a href="/download" class="btn-primary inline-flex items-center gap-2">
+          Download Desktop App
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-6 border-t border-base mt-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <a href="/" class="text-2xl font-bold text-primary mb-4 block">Evvl</a>
+          <p class="text-muted max-w-sm">Compare AI models side by side. Find the best model for your specific use case.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary mb-4">Product</h4>
+          <ul class="space-y-3">
+            <li><a href="/#features" class="text-muted hover:text-primary transition-colors">Features</a></li>
+            <li><a href="/#how-it-works" class="text-muted hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/download" class="text-muted hover:text-primary transition-colors">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary mb-4">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="/privacy" class="text-muted hover:text-primary transition-colors">Privacy</a></li>
+            <li><a href="/terms" class="text-muted hover:text-primary transition-colors">Terms</a></li>
+            <li><a href="https://github.com/mbuckbee/evvl" class="text-muted hover:text-primary transition-colors">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-base text-center text-faint text-sm">
+        &copy; 2025 Evvl. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</Layout>

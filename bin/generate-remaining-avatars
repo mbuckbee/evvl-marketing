@@ -1,0 +1,31 @@
+#!/bin/bash
+# Generate remaining avatars when quota resets
+# Run: bin/generate-remaining-avatars
+
+cd "$(dirname "$0")/.."
+
+echo "Generating remaining developer avatars..."
+echo ""
+
+# Avatar 3
+ASPECT_RATIO="1:1" bin/generate-image "Professional headshot photo of a white woman in her 40s, tech lead, short hair, warm smile, wearing a blazer, neutral background" public/avatars/dev-3.jpg
+sleep 5
+
+# Avatar 5
+ASPECT_RATIO="1:1" bin/generate-image "Professional headshot photo of a Latino man in his 30s, full stack developer, friendly expression, casual shirt, neutral background, natural lighting" public/avatars/dev-5.jpg
+sleep 5
+
+# Avatar 6
+ASPECT_RATIO="1:1" bin/generate-image "Professional headshot photo of a Middle Eastern woman, data scientist, hijab, glasses, confident smile, professional attire, neutral background" public/avatars/dev-6.jpg
+sleep 5
+
+# Avatar 7
+ASPECT_RATIO="1:1" bin/generate-image "Professional headshot photo of an older white man in his 50s, principal engineer, gray hair, kind expression, casual professional attire, neutral background" public/avatars/dev-7.jpg
+sleep 5
+
+# Avatar 8
+ASPECT_RATIO="1:1" bin/generate-image "Professional headshot photo of a young Black woman, ML engineer, natural hair, bright smile, wearing tech company t-shirt, neutral background" public/avatars/dev-8.jpg
+
+echo ""
+echo "Done! Rename files to remove -v1 suffix:"
+echo "  cd public/avatars && for f in *-v*.jpg; do mv \"\$f\" \"\${f/-v[0-9]/}\"; done"
