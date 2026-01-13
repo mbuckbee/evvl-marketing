@@ -1,24 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Keys and Calls - Evvl" description="Learn how Evvl handles API calls to different providers in the web app versus the desktop app.">
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-primary">Evvl</a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
-        <a href="/#how-it-works" class="text-sm text-muted hover:text-primary transition-colors">How It Works</a>
-        <a href="/#privacy" class="text-sm text-muted hover:text-primary transition-colors">Privacy</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2.5 !px-5">
-          Launch App
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <!-- Header -->
   <section class="pt-32 pb-16 px-6">
@@ -212,11 +198,11 @@ import Layout from '../layouts/Layout.astro';
           <div class="bento-card p-6">
             <div class="w-12 h-12 rounded-xl bg-[var(--color-bg-elevated)] flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-primary mb-3">Open Source</h3>
-            <p class="text-muted">Our proxy code is open source. You can inspect exactly what happens to your requests and even self-host if you prefer.</p>
+            <h3 class="text-lg font-semibold text-primary mb-3">Minimal Footprint</h3>
+            <p class="text-muted">Our proxy is a simple pass-through with no business logic. Requests go in, get forwarded, and responses come back. Nothing more.</p>
           </div>
         </div>
       </div>
@@ -266,7 +252,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="pt-8 border-t border-base text-center text-faint text-sm">
-        &copy; 2025 Evvl. All rights reserved.
+        &copy; {new Date().getFullYear()} Evvl. All rights reserved.
       </div>
     </div>
   </footer>

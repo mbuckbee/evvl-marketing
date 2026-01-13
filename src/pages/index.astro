@@ -1,35 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout>
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-primary tracking-tight">evvl</a>
-      <div class="hidden md:flex items-center gap-10">
-        <a href="#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
-        <a href="#how-it-works" class="text-sm text-muted hover:text-primary transition-colors">How It Works</a>
-        <a href="/keys-and-calls" class="text-sm text-muted hover:text-primary transition-colors">Keys & Calls</a>
-        <a href="#faq" class="text-sm text-muted hover:text-primary transition-colors">FAQ</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <!-- Theme toggle -->
-        <button onclick="toggleTheme()" class="theme-toggle" aria-label="Toggle theme">
-          <svg class="w-5 h-5 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
-        <a href="/download" class="hidden sm:block text-sm text-muted hover:text-primary transition-colors">Download</a>
-        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2.5 !px-5">
-          Start Free
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <!-- Hero -->
   <section class="pt-32 pb-24 px-6 relative overflow-hidden radial-glow">
@@ -55,13 +30,19 @@ import Layout from '../layouts/Layout.astro';
           </svg>
         </a>
         <!-- OS-specific download button -->
-        <a href="/download" id="download-btn-mac" class="btn-secondary inline-flex items-center gap-2">
+        <a href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_aarch64.dmg" id="download-btn-mac-arm" class="btn-secondary inline-flex items-center gap-2">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
-          Download for Mac
+          Download for Mac (M Series)
         </a>
-        <a href="/download" id="download-btn-windows" class="btn-secondary inline-flex items-center gap-2">
+        <a href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_x64.dmg" id="download-btn-mac-intel" class="btn-secondary inline-flex items-center gap-2" style="display: none;">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download for Intel Mac
+        </a>
+        <a href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_x64-setup.exe" id="download-btn-windows" class="btn-secondary inline-flex items-center gap-2" style="display: none;">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.91V13.1l10 .15z"/>
           </svg>
@@ -69,28 +50,31 @@ import Layout from '../layouts/Layout.astro';
         </a>
       </div>
       <script>
-        // Detect OS and show appropriate download button
+        // Show appropriate download button based on OS
         (function() {
           const platform = navigator.platform.toLowerCase();
-          const userAgent = navigator.userAgent.toLowerCase();
-          const macBtn = document.getElementById('download-btn-mac');
+          const userAgent = navigator.userAgent;
+          const macArmBtn = document.getElementById('download-btn-mac-arm');
+          const macIntelBtn = document.getElementById('download-btn-mac-intel');
           const winBtn = document.getElementById('download-btn-windows');
 
-          const isMac = platform.includes('mac') || userAgent.includes('mac');
-          const isWindows = platform.includes('win') || userAgent.includes('win');
+          const isMac = platform.includes('mac') || userAgent.toLowerCase().includes('mac');
+          const isWindows = platform.includes('win') || userAgent.toLowerCase().includes('win');
 
           if (isMac) {
-            winBtn?.style.setProperty('display', 'none');
+            // Show M-Series Mac button (default for all Macs)
+            macArmBtn?.style.setProperty('display', 'inline-flex');
           } else if (isWindows) {
-            macBtn?.style.setProperty('display', 'none');
+            macArmBtn?.style.setProperty('display', 'none');
+            winBtn?.style.setProperty('display', 'inline-flex');
           } else {
-            // For Linux/other, default to showing Mac button
-            winBtn?.style.setProperty('display', 'none');
+            // For Linux/other, show M-Series Mac button as default
+            macArmBtn?.style.setProperty('display', 'inline-flex');
           }
         })();
       </script>
 
-      <p class="text-sm text-faint">Free forever. Bring your own API keys.</p>
+      <p class="text-base text-faint mt-8 inline-flex items-center gap-1">Sponsored by <a href="https://knowatoa.com?ref=evvl" class="text-muted hover:text-primary transition-colors underline inline-flex items-center gap-1.5"><img src="/knowatoa-icon.svg" alt="" class="w-5 h-5 rounded" />Knowatoa</a></p>
     </div>
 
     <!-- Hero screenshot -->
@@ -109,25 +93,40 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-16 px-6 border-y border-light">
     <div class="max-w-7xl mx-auto">
       <p class="text-center text-sm text-faint mb-10">Works with all major AI providers</p>
+      <style is:global>
+        .logo-dark { display: none !important; }
+        .logo-light { display: block !important; }
+        .dark .logo-dark { display: block !important; }
+        .dark .logo-light { display: none !important; }
+        @media (prefers-color-scheme: dark) {
+          :root:not(.light) .logo-dark { display: block !important; }
+          :root:not(.light) .logo-light { display: none !important; }
+        }
+      </style>
       <div class="flex items-center justify-center gap-12 md:gap-16 flex-wrap provider-logos">
         <div class="flex items-center gap-3">
-          <img src="/logos/dark/chatgpt.svg" alt="OpenAI" class="h-10" />
+          <img src="/logos/dark/chatgpt.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/chatgpt.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">OpenAI</span>
         </div>
         <div class="flex items-center gap-3">
-          <img src="/logos/dark/claude.svg" alt="Claude" class="h-10" />
+          <img src="/logos/dark/claude.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/claude.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">Claude</span>
         </div>
         <div class="flex items-center gap-3">
-          <img src="/logos/dark/gemini.svg" alt="Google" class="h-10" />
+          <img src="/logos/dark/gemini.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/gemini.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">Google</span>
         </div>
         <div class="flex items-center gap-3">
-          <img src="/logos/dark/meta.svg" alt="Meta" class="h-10" />
+          <img src="/logos/dark/meta.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/meta.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">Meta</span>
         </div>
         <div class="flex items-center gap-3">
-          <img src="/logos/dark/openrouter.svg" alt="OpenRouter" class="h-10" />
+          <img src="/logos/dark/openrouter.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/openrouter.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">OpenRouter</span>
         </div>
       </div>
@@ -272,23 +271,35 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex gap-6 items-start p-8 bento-card">
           <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">2</div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Write your prompt</h3>
-            <p class="text-muted">Enter the prompt you want to test. Add variables for batch testing across different inputs.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Create the first version of your prompt</h3>
+            <p class="text-muted">Enter the prompt you want to test, add variables and track results across versions.</p>
           </div>
         </div>
 
         <div class="flex gap-6 items-start p-8 bento-card">
           <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">3</div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Set model configs</h3>
-            <p class="text-muted">Choose which models to compare and configure parameters like temperature and max tokens.</p>
+            <h3 class="text-xl font-bold text-primary mb-2">Set model configs to compare</h3>
+            <p class="text-muted">Choose which models to compare, either the same model with different configuration parameters or two different models from different providers.</p>
           </div>
         </div>
 
-        <div class="flex gap-6 items-start p-8 bento-card !border-[var(--color-accent)]/30">
+        <div class="flex gap-6 items-start p-8 bento-card">
           <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">4</div>
           <div>
-            <h3 class="text-xl font-bold text-primary mb-2">Compare</h3>
+            <h3 class="text-xl font-bold text-primary mb-2">Add a dataset</h3>
+            <p class="text-muted">Upload test cases or create them inline to run your prompts against real-world inputs.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start p-8 bento-card !border-green-500/30">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">Compare your results</h3>
             <p class="text-muted">View all responses side by side. Add notes, export results, and build intuition about which models work best.</p>
           </div>
         </div>
@@ -316,8 +327,8 @@ import Layout from '../layouts/Layout.astro';
             <p class="text-muted text-sm">API keys are automatically redacted from all server logs. Prompts are never logged.</p>
           </div>
           <div class="p-6 rounded-xl bg-card border border-base">
-            <h3 class="font-semibold text-primary mb-2">No Tracking</h3>
-            <p class="text-muted text-sm">We don't track usage, collect analytics about prompts, or store your results.</p>
+            <h3 class="font-semibold text-primary mb-2">Privacy-Focused Analytics</h3>
+            <p class="text-muted text-sm">Web app uses cookie-free Plausible analytics. Desktop app has zero tracking.</p>
           </div>
           <div class="p-6 rounded-xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30">
             <h3 class="font-semibold text-accent mb-2">Desktop App</h3>
@@ -390,6 +401,16 @@ import Layout from '../layouts/Layout.astro';
           </summary>
           <p class="mt-4 text-muted">Yes. Export comparisons and notes to JSON or CSV for analysis, sharing, or archiving.</p>
         </details>
+
+        <details class="group bento-card p-6">
+          <summary class="flex items-center justify-between cursor-pointer list-none">
+            <h3 class="text-lg font-semibold text-primary">Who built Evvl?</h3>
+            <svg class="w-5 h-5 text-muted group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-4 text-muted">Evvl was built by the team at <a href="https://knowatoa.com?ref=evvl" class="text-accent hover:underline">Knowatoa</a> to help with our own software development. We needed a better way to compare AI models and decided to share it with everyone.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -401,7 +422,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
         Start comparing today
       </h2>
-      <p class="text-xl text-muted mb-10">Free forever. No signup required. Bring your own API keys.</p>
+      <p class="text-xl text-muted mb-10">No signup required. Bring your own API keys.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
           Launch Web App
@@ -449,7 +470,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="pt-8 border-t border-light text-center text-faint text-sm">
-        &copy; 2025 Evvl. All rights reserved.
+        &copy; {new Date().getFullYear()} Evvl. All rights reserved.
       </div>
     </div>
   </footer>

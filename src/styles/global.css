@@ -329,6 +329,34 @@ body {
   opacity: 0.7;
 }
 
+/* Logo theme switching - light mode default */
+img.logo-dark {
+  display: none !important;
+}
+
+img.logo-light {
+  display: inline-block !important;
+}
+
+/* Dark mode - show dark logos */
+.dark img.logo-dark {
+  display: inline-block !important;
+}
+
+.dark img.logo-light {
+  display: none !important;
+}
+
+/* System preference dark mode */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) img.logo-dark {
+    display: inline-block !important;
+  }
+  :root:not(.light) img.logo-light {
+    display: none !important;
+  }
+}
+
 /* FAQ details marker */
 details summary::-webkit-details-marker {
   display: none;

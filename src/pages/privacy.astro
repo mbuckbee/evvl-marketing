@@ -1,19 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Privacy Policy - Evvl" description="Privacy policy for Evvl web and desktop applications.">
-  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-primary">Evvl</a>
-      <div class="flex items-center gap-6">
-        <a href="/#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
-        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2 !px-4">
-          Launch App
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <article class="pt-32 pb-20 px-6">
     <div class="max-w-3xl mx-auto">
@@ -34,8 +25,8 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="text-xl font-semibold text-primary mb-3">Web Application</h3>
           <p class="mb-3">When using the web application:</p>
           <ul class="list-disc pl-6 space-y-2">
-            <li><strong class="text-primary">API Keys:</strong> Your API keys are transmitted through our servers to reach AI providers (OpenAI, Anthropic, Google, OpenRouter). Keys are automatically redacted from all server logs and are never stored in any database.</li>
-            <li><strong class="text-primary">Prompts and Responses:</strong> Your prompts and AI-generated responses pass through our servers but are never logged or stored.</li>
+            <li><strong class="text-primary">API Keys:</strong> Due to browser CORS restrictions, OpenAI and Anthropic API calls are proxied through our servers. Google and OpenRouter calls go directly from your browser. Keys are automatically redacted from all server logs and are never stored. <a href="/keys-and-calls" class="text-accent hover:underline">Learn more</a></li>
+            <li><strong class="text-primary">Prompts and Responses:</strong> For proxied calls (OpenAI, Anthropic), your prompts pass through our servers but are never logged or stored. Google and OpenRouter calls never touch our servers.</li>
             <li><strong class="text-primary">Operational Logs:</strong> We maintain basic operational logs (provider name, model name, error types) for debugging purposes only. These logs contain no personal or sensitive data.</li>
             <li><strong class="text-primary">Local Storage:</strong> All your evaluation data, history, ratings, and preferences are stored only in your browser's localStorage on your device.</li>
           </ul>
@@ -62,6 +53,17 @@ import Layout from '../layouts/Layout.astro';
             <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">Google Privacy Policy</a></li>
             <li><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">OpenRouter Privacy Policy</a></li>
           </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-primary mb-4">Analytics (Web App Only)</h2>
+          <p class="mb-3">The web application uses privacy-focused analytics to understand basic usage patterns:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong class="text-primary">Plausible Analytics:</strong> Privacy-friendly analytics that doesn't use cookies or collect personal data. Only anonymous page views. <a href="https://plausible.io/privacy" target="_blank" rel="noopener" class="text-accent hover:underline">Learn more</a></li>
+            <li><strong class="text-primary">Vercel Analytics:</strong> Basic performance and usage metrics. <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener" class="text-accent hover:underline">Learn more</a></li>
+            <li><strong class="text-primary">Vercel Speed Insights:</strong> Page load performance monitoring. <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener" class="text-accent hover:underline">Learn more</a></li>
+          </ul>
+          <p class="mt-3"><strong class="text-primary">Desktop Application:</strong> The desktop app has zero analytics—no tracking of any kind.</p>
         </section>
 
         <section>

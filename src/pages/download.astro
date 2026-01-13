@@ -1,62 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Download Evvl Desktop" description="Download Evvl for Mac, Windows, or Linux. Compare AI models locally with maximum privacy.">
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-primary">Evvl</a>
-      <div class="flex items-center gap-6">
-        <a href="/#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
-        <a href="/#how-it-works" class="text-sm text-muted hover:text-primary transition-colors">How It Works</a>
-        <a href="/#privacy" class="text-sm text-muted hover:text-primary transition-colors">Privacy</a>
-        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2 !px-4">
-          Launch App
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
-  <section class="pt-32 pb-20 px-6">
-    <div class="max-w-4xl mx-auto">
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 relative overflow-hidden radial-glow">
+    <div class="max-w-4xl mx-auto relative z-10">
       <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold text-primary mb-4">Download Evvl Desktop</h1>
-        <p class="text-xl text-muted max-w-2xl mx-auto">
-          Maximum privacy. Your API calls go directly to providers—no server intermediary.
+        <div class="eyebrow mb-4">Desktop Application</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
+          <span class="text-primary">Download</span>
+          <span class="gradient-text"> Evvl Desktop</span>
+        </h1>
+        <p class="text-xl text-muted max-w-2xl mx-auto leading-relaxed">
+          Maximum privacy. Your API calls go directly to providers—no server intermediary. Zero analytics.
         </p>
       </div>
 
       <!-- Download buttons -->
       <div class="grid md:grid-cols-3 gap-6 mb-16">
         <!-- macOS -->
-        <div class="bento-card p-6 text-center">
+        <div class="bento-card p-6 text-center hover:border-[var(--color-accent)]/30 transition-colors">
           <div class="w-16 h-16 mx-auto mb-4 bg-[var(--color-bg-elevated)] rounded-xl flex items-center justify-center">
-            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            <svg class="w-8 h-8 text-primary" viewBox="0 0 384 512" fill="currentColor">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
             </svg>
           </div>
           <h3 class="font-semibold text-primary mb-2">macOS</h3>
-          <p class="text-sm text-faint mb-4">Apple Silicon & Intel</p>
+          <p class="text-sm text-faint mb-4">Apple Silicon</p>
           <a
-            href="https://github.com/mbuckbee/evvl/releases/latest"
-            class="btn-primary inline-block w-full text-sm"
+            href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_aarch64.dmg"
+            class="btn-primary inline-block w-full text-sm mb-3"
           >
-            Download .dmg
+            Download for Mac (M Series)
+          </a>
+          <a
+            href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_x64.dmg"
+            class="text-sm text-faint hover:text-primary transition-colors"
+          >
+            Intel Mac? Download here
           </a>
         </div>
 
         <!-- Windows -->
-        <div class="bento-card p-6 text-center">
+        <div class="bento-card p-6 text-center hover:border-[var(--color-accent)]/30 transition-colors">
           <div class="w-16 h-16 mx-auto mb-4 bg-[var(--color-bg-elevated)] rounded-xl flex items-center justify-center">
-            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.91V13.1l10 .15z"/>
+            <svg class="w-8 h-8 text-primary" viewBox="0 0 448 512" fill="currentColor">
+              <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/>
             </svg>
           </div>
           <h3 class="font-semibold text-primary mb-2">Windows</h3>
           <p class="text-sm text-faint mb-4">Windows 10/11</p>
           <a
-            href="https://github.com/mbuckbee/evvl/releases/latest"
+            href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_x64-setup.exe"
             class="btn-primary inline-block w-full text-sm"
           >
             Download .exe
@@ -64,16 +63,16 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Linux -->
-        <div class="bento-card p-6 text-center">
+        <div class="bento-card p-6 text-center hover:border-[var(--color-accent)]/30 transition-colors">
           <div class="w-16 h-16 mx-auto mb-4 bg-[var(--color-bg-elevated)] rounded-xl flex items-center justify-center">
-            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.504 0c-.155 0-.311.005-.466.015C9.33.097 7.115 1.85 6.237 4.538a8.89 8.89 0 00-.267 1.727c-.037.542-.063 1.086-.082 1.63-.016.462-.027.924-.035 1.386a35.7 35.7 0 00-.01 1.093c0 .22.002.44.005.66.003.265.007.53.013.794.01.439.023.877.04 1.315.02.506.044 1.01.073 1.513.034.588.073 1.175.118 1.76a61.6 61.6 0 00.147 1.558c.055.48.115.96.18 1.437.073.534.15 1.066.234 1.596.092.581.19 1.16.294 1.736.097.535.2 1.068.31 1.599.115.558.236 1.114.365 1.666.123.528.253 1.053.39 1.575.142.54.291 1.076.447 1.608.145.496.297.99.456 1.48.172.532.351 1.06.539 1.583.166.464.339.924.519 1.38.198.5.403.995.618 1.485.181.413.369.822.564 1.227.223.463.455.92.697 1.371.193.361.393.717.601 1.068.26.44.532.87.815 1.293.207.31.42.614.642.912.297.4.607.789.93 1.167.224.263.454.521.691.772.337.358.688.702 1.053 1.03.25.225.506.443.77.652.395.313.805.608 1.229.885.268.175.542.34.822.495.464.257.943.49 1.436.699.29.122.586.234.886.336.541.184 1.096.336 1.662.455.3.063.603.115.91.156.591.079 1.19.12 1.793.12.602 0 1.2-.041 1.792-.12.306-.04.61-.093.909-.156.566-.12 1.121-.271 1.662-.455.3-.102.596-.214.886-.336.493-.21.972-.442 1.436-.699.28-.154.554-.32.822-.495.424-.277.834-.572 1.229-.885.264-.21.52-.427.77-.652.365-.328.716-.672 1.053-1.03.237-.25.467-.509.691-.772.323-.378.633-.768.93-1.167.222-.298.435-.603.642-.912.283-.423.555-.853.815-1.293.208-.351.408-.707.601-1.068.242-.45.474-.908.697-1.371.195-.405.383-.814.564-1.227.215-.49.42-.985.618-1.485.188-.523.367-1.05.539-1.582.159-.491.311-.985.456-1.481.156-.532.305-1.068.447-1.608.137-.522.267-1.047.39-1.575.129-.552.25-1.108.365-1.666.11-.53.213-1.064.31-1.599.104-.576.202-1.155.294-1.736.084-.53.16-1.062.234-1.596.065-.477.125-.956.18-1.437a61.6 61.6 0 00.147-1.558c.045-.585.084-1.172.118-1.76.029-.502.053-1.007.073-1.513.017-.438.03-.876.04-1.315.006-.264.01-.53.013-.793.003-.22.005-.44.005-.66a35.7 35.7 0 00-.01-1.094c-.008-.462-.019-.924-.035-1.386a63.41 63.41 0 00-.082-1.63 8.89 8.89 0 00-.267-1.727c-.878-2.688-3.093-4.44-5.8-4.523A5.6 5.6 0 0012.504 0z"/>
+            <svg class="w-8 h-8 text-primary" viewBox="0 0 448 512" fill="currentColor">
+              <path d="M220.8 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7zm-21.9 1.7c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7zM223.7 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8zM183 75.8c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1zm-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3-1.4-4.9 0-9 4.2-12.3zm3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9zm-30.5-117.6c-3.7-10.5-11.3-18.8-18.5-25.4-.1 0-.1 0-.1-.1 0-.1 0-.2-.1-.3-17.9-17.1-50.3-42.3-51-80.3-.1-22.9 13.7-47 42.1-68.2 4.9-3.6 10.3-7.2 16.5-10.6 7.7 18.5 8.5 51.4-1 64.7-5.4 7.6-11.5 12.4-13.3 17.4 2 9.6 15.6 21.9 20 24.8 1.2.7 2.4.9 3.6.6.7-.1 1.4-.5 1.9-1 .6-.5 1-1.2 1.2-2 .8-2.7-.1-5.6-2.9-8.3-3.5-3.4-8.4-6.3-11.3-9.2-2.7-2.6-4.5-5.4-3.8-8.5 1-4.1 6.4-7.8 10.4-9.4 3.1-1.2 4.9-1.2 8.2.6 11.5 6.4 10.5 24.3 4.2 35.6 5 4.6 10.2 8.4 17.3 13.4 13.1 9.1 18.5 34.1-2.2 53.3-.3.2-5.2 4.6-8.3 6.3zm49.8 63.8c-4.9-14.9-8.3-39.7-8.6-49.5-.2-10.1-.6-24.3 3.7-33.8 3.5-7.6 10.7-13 20.7-17.1 8.4-3.5 20.5-6.4 31.1-5.7 2.8 6.7 3.5 13.5 3.1 20.5-.8 13.8-5.2 27.5-11.2 38.7-1.9 3.7-4.3 7.5-6.7 11.4-5.5 8.9-10.4 17.4-12.5 27.8-1.5 7.5-5.3 14.5-4.7 21.5-6.2 5.2-11.6 4.4-14.9-13.8zm40.2-33.3c3.8-7.5 6.2-14.7 7.3-22.6.6 3.1.6 6.3.5 9.6-.5 9.4-3.1 17.3-6.2 25 .1-3.8-.4-7.8-1.6-12zm115.3 37.3c-6.6 14.3-19.6 22.4-29.5 26.5-20.1 8.3-40.7 13.8-56.6 26.8-.5.4-.9.8-1.4 1.2-1.1.9-2.6-1-1.9-2.1.7-1.1 1.5-2.2 2.3-3.3 1.6-2.3 3.4-4.4 5.2-6.4 3.3-3.7 6.8-7.2 10.6-10.5 2-1.8 4.1-3.5 6.3-5.2 7.2-5.5 15.3-10.4 25.5-15.5 3.4-1.8 6.9-3.3 10.5-4.7 2.1-.8 4.3-1.6 6.3-2.5 4.2-1.9 8.2-4.1 11.4-7 5.5-5 8.9-12.5 9.4-21.4.2-3.5-.3-7-.9-10.5-1.5-8.6-4.1-16.4-3.7-25.8.3-8.3 3.6-17.3 9.3-25.7 5.7-8.3 10.7-17.1 13.6-25.4 3.1-8.9 4.1-17.4 2.2-24.1-.4-1.5-.8-3.2-1.4-4.8 4.5 6.3 5.9 15.6 4.9 26.3-2 22.1-15.2 42.3-16.9 61.2-1.6 18.4.9 25.3 3.6 32 2.8 6.8 5 13.2 5.5 19.1 1 14.2-3.8 24.2-14.3 32.6z"/>
             </svg>
           </div>
           <h3 class="font-semibold text-primary mb-2">Linux</h3>
           <p class="text-sm text-faint mb-4">AppImage / .deb</p>
           <a
-            href="https://github.com/mbuckbee/evvl/releases/latest"
+            href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.2/Evvl_0.1.2_amd64.AppImage"
             class="btn-primary inline-block w-full text-sm"
           >
             Download
@@ -81,9 +80,19 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
+      <!-- View all releases link -->
+      <div class="text-center mb-10">
+        <a href="https://github.com/mbuckbee/evvl-releases/releases" class="text-muted hover:text-primary transition-colors">
+          View all releases on GitHub →
+        </a>
+      </div>
+
       <!-- Why Desktop -->
-      <div class="bento-card p-8">
-        <h2 class="text-2xl font-bold text-primary mb-6">Why Desktop?</h2>
+      <div class="bento-card p-8 md:p-10">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-3">Why Desktop?</div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">The privacy-first choice</h2>
+        </div>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="flex gap-4">
             <div class="flex-shrink-0 w-10 h-10 bg-[var(--color-bg-elevated)] rounded-lg flex items-center justify-center border border-base">
@@ -131,13 +140,25 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- View all releases link -->
-      <div class="text-center mt-8">
-        <a href="https://github.com/mbuckbee/evvl/releases" class="text-sm text-muted hover:text-primary transition-colors">
-          View all releases on GitHub →
-        </a>
-      </div>
+  <!-- CTA -->
+  <section class="py-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 radial-glow"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+        Prefer the web?
+      </h2>
+      <p class="text-lg text-muted mb-8 max-w-xl mx-auto">
+        Try Evvl instantly in your browser. No download or login required.
+      </p>
+      <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
+        Launch Web App
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
     </div>
   </section>
 

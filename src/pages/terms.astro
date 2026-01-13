@@ -1,19 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Terms of Service - Evvl" description="Terms of service for Evvl web and desktop applications.">
-  <nav class="fixed top-0 left-0 right-0 nav-bg backdrop-blur-xl z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-primary">Evvl</a>
-      <div class="flex items-center gap-6">
-        <a href="/#features" class="text-sm text-muted hover:text-primary transition-colors">Features</a>
-        <a href="https://app.evvl.ai" class="btn-primary text-sm !py-2 !px-4">
-          Launch App
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <article class="pt-32 pb-20 px-6">
     <div class="max-w-3xl mx-auto">
