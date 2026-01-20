@@ -30,7 +30,7 @@ import Nav from '../components/Nav.astro';
         <p class="text-muted leading-relaxed mb-6">
           Your API keys are <span class="text-primary font-semibold">always stored locally</span> in your browser or desktop app—never on our servers. However, due to browser security restrictions (CORS), some API calls in the web app must be proxied through our server. The desktop app makes all calls directly to providers.
         </p>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-3 gap-4">
           <div class="p-4 rounded-xl bg-green-500/10 border border-green-500/30">
             <div class="font-semibold text-green-600 dark:text-green-400 mb-1">Desktop App</div>
             <div class="text-sm text-muted">All calls go directly to providers</div>
@@ -38,6 +38,10 @@ import Nav from '../components/Nav.astro';
           <div class="p-4 rounded-xl bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30">
             <div class="font-semibold text-accent mb-1">Web App</div>
             <div class="text-sm text-muted">Some calls proxied for CORS compatibility</div>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
+            <div class="font-semibold text-purple-600 dark:text-purple-400 mb-1">Shared Responses</div>
+            <div class="text-sm text-muted">Stored on our servers when you share</div>
           </div>
         </div>
       </div>
@@ -204,6 +208,88 @@ import Nav from '../components/Nav.astro';
             <h3 class="text-lg font-semibold text-primary mb-3">Minimal Footprint</h3>
             <p class="text-muted">Our proxy is a simple pass-through with no business logic. Requests go in, get forwarded, and responses come back. Nothing more.</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Analytics</h2>
+        <p class="text-muted leading-relaxed mb-6">
+          We use privacy-focused <a href="https://plausible.io" class="text-accent hover:underline">Plausible Analytics</a> (cookie-free, GDPR compliant) on:
+        </p>
+
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-base">
+                <th class="text-left py-4 px-4 text-muted font-medium">Location</th>
+                <th class="text-center py-4 px-4 text-muted font-medium">Analytics</th>
+                <th class="text-left py-4 px-4 text-muted font-medium">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Marketing Site</div>
+                  <div class="text-sm text-faint">evvl.ai</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Yes
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">Page views only, no personal data</td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Share URLs</div>
+                  <div class="text-sm text-faint">share.evvl.ai</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Yes
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">Page views only, no personal data</td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Web App</div>
+                  <div class="text-sm text-faint">app.evvl.ai</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Yes
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">Vercel analytics for usage patterns (e.g., settings saved)</td>
+              </tr>
+              <tr class="border-b border-light">
+                <td class="py-4 px-4">
+                  <div class="font-semibold text-primary">Desktop App</div>
+                  <div class="text-sm text-faint">Mac, Windows, Linux</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                    No
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">Zero tracking, fully offline capable</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
