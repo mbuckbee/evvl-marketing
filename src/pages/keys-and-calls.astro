@@ -224,6 +224,7 @@ import Nav from '../components/Nav.astro';
               <tr class="border-b border-base">
                 <th class="text-left py-4 px-4 text-muted font-medium">Location</th>
                 <th class="text-center py-4 px-4 text-muted font-medium">Analytics</th>
+                <th class="text-center py-4 px-4 text-muted font-medium">Prompts Logged</th>
                 <th class="text-left py-4 px-4 text-muted font-medium">Notes</th>
               </tr>
             </thead>
@@ -234,14 +235,22 @@ import Nav from '../components/Nav.astro';
                   <div class="text-sm text-faint">evvl.ai</div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                     Yes
                   </span>
                 </td>
-                <td class="py-4 px-4 text-muted text-sm">Page views only, no personal data</td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                    No
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">Page views and aggregate download numbers, no personal data</td>
               </tr>
               <tr class="border-b border-light">
                 <td class="py-4 px-4">
@@ -249,14 +258,25 @@ import Nav from '../components/Nav.astro';
                   <div class="text-sm text-faint">share.evvl.ai</div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                     Yes
                   </span>
                 </td>
-                <td class="py-4 px-4 text-muted text-sm">Page views only, no personal data</td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    Yes
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-muted text-sm">
+                  <p>By necessity, we store the prompt to display it on the page. Not logged, but viewable by us.</p>
+                  <p class="mt-2">Share URLs and all data are expunged when they expire.</p>
+                </td>
               </tr>
               <tr class="border-b border-light">
                 <td class="py-4 px-4">
@@ -264,11 +284,19 @@ import Nav from '../components/Nav.astro';
                   <div class="text-sm text-faint">app.evvl.ai</div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-accent text-sm">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                     Yes
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                    No
                   </span>
                 </td>
                 <td class="py-4 px-4 text-muted text-sm">Success/error events for system health (no prompts or responses)</td>
@@ -277,6 +305,14 @@ import Nav from '../components/Nav.astro';
                 <td class="py-4 px-4">
                   <div class="font-semibold text-primary">Desktop App</div>
                   <div class="text-sm text-faint">Mac, Windows, Linux</div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                    No
+                  </span>
                 </td>
                 <td class="py-4 px-4 text-center">
                   <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm">
