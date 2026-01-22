@@ -27,7 +27,7 @@ import Nav from '../components/Nav.astro';
           <ul class="list-disc pl-6 space-y-2">
             <li><strong class="text-primary">API Keys:</strong> Due to browser CORS restrictions, OpenAI and Anthropic API calls are proxied through our servers. Google and OpenRouter calls go directly from your browser. Keys are automatically redacted from all server logs and are never stored. <a href="/keys-and-calls" class="text-accent hover:underline">Learn more</a></li>
             <li><strong class="text-primary">Prompts and Responses:</strong> For proxied calls (OpenAI, Anthropic), your prompts pass through our servers but are never logged or stored. Google and OpenRouter calls never touch our servers.</li>
-            <li><strong class="text-primary">Operational Logs:</strong> We maintain basic operational logs (provider name, model name, error types) for debugging purposes only. These logs contain no personal or sensitive data.</li>
+            <li><strong class="text-primary">Event Tracking:</strong> We track successful and error events to monitor system health and fix issues (e.g., detecting when a model slug is no longer supported by an API). We only capture event metadata like provider name, model name, and error types—never your prompts, responses, or any underlying data.</li>
             <li><strong class="text-primary">Local Storage:</strong> All your evaluation data, history, ratings, and preferences are stored only in your browser's localStorage on your device.</li>
           </ul>
 
