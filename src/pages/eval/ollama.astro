@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Ollama Local Models - Evvl" description="Compare and evaluate local LLMs like Llama, Mistral, and Qwen running on Ollama with Evvl.">
+  <Nav />
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logos/dark/ollama.svg" alt="" class="h-12 logo-dark" />
+        <img src="/logos/light/ollama.svg" alt="" class="h-12 logo-light" />
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">Ollama</h1>
+      </div>
+      <p class="text-xl text-muted mb-12">Run and evaluate open-source models locally. Complete privacy, zero API costs.</p>
+
+      <!-- Key Models -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Popular Models</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Llama 3.1</h3>
+            <p class="text-muted text-sm mb-4">Meta's flagship open model. Available in 8B, 70B, and 405B sizes.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Open Source</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">128K Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Mistral / Mixtral</h3>
+            <p class="text-muted text-sm mb-4">Efficient models from Mistral AI. Mixtral offers MoE architecture.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Efficient</span>
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Fast</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Qwen 2.5</h3>
+            <p class="text-muted text-sm mb-4">Alibaba's multilingual model. Strong coding and reasoning capabilities.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Multilingual</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">Coding</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">DeepSeek Coder</h3>
+            <p class="text-muted text-sm mb-4">Specialized for code generation. Competitive with commercial models.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">Code-Focused</span>
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Specialized</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best For -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Best For</h2>
+        <div class="bento-card p-8">
+          <ul class="space-y-4 text-muted">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Complete privacy</strong> — All processing happens on your machine, nothing leaves your network</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Zero API costs</strong> — Run unlimited prompts after initial setup</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Offline capable</strong> — Works without internet after models are downloaded</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Experimentation</strong> — Try dozens of models to find what works for your use case</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Integration -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Using Ollama with Evvl</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>First, install Ollama from <a href="https://ollama.com" target="_blank" rel="noopener" class="text-accent hover:underline">ollama.com</a> and pull your desired models.</p>
+          <p><strong class="text-primary">Desktop App:</strong> Evvl automatically detects running Ollama instances. No API key needed—just make sure Ollama is running.</p>
+          <p><strong class="text-primary">Web App:</strong> Due to CORS restrictions, Ollama isn't available in the web app. Use the desktop app for local models.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bento-card p-8 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">Compare local vs cloud models</h3>
+        <p class="text-muted mb-6">See how Llama 3.1 70B stacks up against GPT-4o and Claude on your specific tasks.</p>
+        <a href="/download" class="btn-primary inline-flex items-center gap-2">
+          Download Desktop App
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>

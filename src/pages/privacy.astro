@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Privacy Policy - Evvl" description="Privacy policy for Evvl web and desktop applications.">
@@ -104,14 +105,5 @@ import Nav from '../components/Nav.astro';
     </div>
   </article>
 
-  <footer class="py-12 px-6 border-t border-base">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-faint">Evvl — Compare AI models side by side</div>
-      <div class="flex items-center gap-6 text-sm text-faint">
-        <a href="/privacy" class="hover:text-primary transition-colors">Privacy</a>
-        <a href="/terms" class="hover:text-primary transition-colors">Terms</a>
-        <a href="https://github.com/mbuckbee/evvl" class="hover:text-primary transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

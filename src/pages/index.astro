@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
@@ -53,9 +54,13 @@ import Nav from '../components/Nav.astro';
           const macBtn = document.getElementById('download-btn-mac');
           const winBtn = document.getElementById('download-btn-windows');
 
-          // CTA section buttons
+          // Discoveries CTA section buttons
           const ctaMacBtn = document.getElementById('cta-download-btn-mac');
           const ctaWinBtn = document.getElementById('cta-download-btn-windows');
+
+          // Final CTA section buttons
+          const finalCtaMacBtn = document.getElementById('final-cta-download-btn-mac');
+          const finalCtaWinBtn = document.getElementById('final-cta-download-btn-windows');
 
           const isMac = platform.includes('mac') || userAgent.toLowerCase().includes('mac');
           const isWindows = platform.includes('win') || userAgent.toLowerCase().includes('win');
@@ -64,15 +69,19 @@ import Nav from '../components/Nav.astro';
           if (isMac) {
             macBtn?.style.setProperty('display', 'inline-flex');
             ctaMacBtn?.style.setProperty('display', 'inline-flex');
+            finalCtaMacBtn?.style.setProperty('display', 'inline-flex');
           } else if (isWindows) {
             macBtn?.style.setProperty('display', 'none');
             winBtn?.style.setProperty('display', 'inline-flex');
             ctaMacBtn?.style.setProperty('display', 'none');
             ctaWinBtn?.style.setProperty('display', 'inline-flex');
+            finalCtaMacBtn?.style.setProperty('display', 'none');
+            finalCtaWinBtn?.style.setProperty('display', 'inline-flex');
           } else {
             // For Linux/other, show Mac button as default
             macBtn?.style.setProperty('display', 'inline-flex');
             ctaMacBtn?.style.setProperty('display', 'inline-flex');
+            finalCtaMacBtn?.style.setProperty('display', 'inline-flex');
           }
         })();
       </script>
@@ -107,31 +116,36 @@ import Nav from '../components/Nav.astro';
         }
       </style>
       <div class="flex items-center justify-center gap-12 md:gap-16 flex-wrap provider-logos">
-        <div class="flex items-center gap-3">
+        <a href="/eval/openai" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/logos/dark/chatgpt.svg" alt="" class="h-10 logo-dark" />
           <img src="/logos/light/chatgpt.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">OpenAI</span>
-        </div>
-        <div class="flex items-center gap-3">
+        </a>
+        <a href="/eval/anthropic" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/logos/dark/claude.svg" alt="" class="h-10 logo-dark" />
           <img src="/logos/light/claude.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">Claude</span>
-        </div>
-        <div class="flex items-center gap-3">
+        </a>
+        <a href="/eval/google" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/logos/dark/gemini.svg" alt="" class="h-10 logo-dark" />
           <img src="/logos/light/gemini.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">Google</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="/logos/dark/meta.svg" alt="" class="h-10 logo-dark" />
-          <img src="/logos/light/meta.svg" alt="" class="h-10 logo-light" />
-          <span class="text-lg font-semibold text-primary">Meta</span>
-        </div>
-        <div class="flex items-center gap-3">
+        </a>
+        <a href="/eval/ollama" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="/logos/dark/ollama.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/ollama.svg" alt="" class="h-10 logo-light" />
+          <span class="text-lg font-semibold text-primary">Ollama</span>
+        </a>
+        <a href="/eval/lm-studio" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="/logos/dark/lmstudio.svg" alt="" class="h-10 logo-dark" />
+          <img src="/logos/light/lmstudio.svg" alt="" class="h-10 logo-light" />
+          <span class="text-lg font-semibold text-primary">LM Studio</span>
+        </a>
+        <a href="/eval/openrouter" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/logos/dark/openrouter.svg" alt="" class="h-10 logo-dark" />
           <img src="/logos/light/openrouter.svg" alt="" class="h-10 logo-light" />
           <span class="text-lg font-semibold text-primary">OpenRouter</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -460,48 +474,21 @@ import Nav from '../components/Nav.astro';
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
-        <a href="/download" class="btn-secondary">
-          Download Desktop
+        <a href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.5/Evvl_0.1.5_macOS_M_Series.dmg" id="final-cta-download-btn-mac" class="btn-secondary inline-flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download for Mac
+        </a>
+        <a href="https://github.com/mbuckbee/evvl-releases/releases/download/v0.1.5/Evvl_0.1.5_Windows_Setup.exe" id="final-cta-download-btn-windows" class="btn-secondary inline-flex items-center gap-2" style="display: none;">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.91V13.1l10 .15z"/>
+          </svg>
+          Download for Windows
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-16 px-6 border-t border-light">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-5 gap-12 mb-16">
-        <div class="md:col-span-2">
-          <a href="/" class="text-2xl font-bold text-primary tracking-tight mb-4 block">evvl</a>
-          <p class="text-faint max-w-xs">Compare AI models side by side. Find the best model for your specific use case.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-primary mb-4">Product</h4>
-          <ul class="space-y-3 text-sm">
-            <li><a href="#features" class="text-faint hover:text-primary transition-colors">Features</a></li>
-            <li><a href="#how-it-works" class="text-faint hover:text-primary transition-colors">How It Works</a></li>
-            <li><a href="/download" class="text-faint hover:text-primary transition-colors">Download</a></li>
-            <li><a href="/keys-and-calls" class="text-faint hover:text-primary transition-colors">Keys & Calls</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-primary mb-4">Resources</h4>
-          <ul class="space-y-3 text-sm">
-            <li><a href="#faq" class="text-faint hover:text-primary transition-colors">FAQ</a></li>
-            <li><a href="https://github.com/mbuckbee/evvl" class="text-faint hover:text-primary transition-colors">GitHub</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-primary mb-4">Legal</h4>
-          <ul class="space-y-3 text-sm">
-            <li><a href="/privacy" class="text-faint hover:text-primary transition-colors">Privacy Policy</a></li>
-            <li><a href="/terms" class="text-faint hover:text-primary transition-colors">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="pt-8 border-t border-light text-center text-faint text-sm">
-        &copy; {new Date().getFullYear()} Evvl. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

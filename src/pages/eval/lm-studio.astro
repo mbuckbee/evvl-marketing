@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="LM Studio Local Models - Evvl" description="Compare and evaluate local LLMs running on LM Studio with Evvl's desktop app.">
+  <Nav />
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logos/dark/lmstudio.svg" alt="" class="h-12 logo-dark" />
+        <img src="/logos/light/lmstudio.svg" alt="" class="h-12 logo-light" />
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">LM Studio</h1>
+      </div>
+      <p class="text-xl text-muted mb-12">Run open-source models locally with a beautiful interface. Full privacy, zero cloud dependency.</p>
+
+      <!-- Key Features -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Why LM Studio</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Model Discovery</h3>
+            <p class="text-muted text-sm mb-4">Browse and download models directly from Hugging Face with one click.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Easy Setup</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">OpenAI-Compatible API</h3>
+            <p class="text-muted text-sm mb-4">Local server mode exposes an OpenAI-compatible API endpoint.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">Compatible</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">GPU Acceleration</h3>
+            <p class="text-muted text-sm mb-4">Automatic GPU detection and optimization for faster inference.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Fast</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Cross-Platform</h3>
+            <p class="text-muted text-sm mb-4">Available for Mac, Windows, and Linux with native performance.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Universal</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best For -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Best For</h2>
+        <div class="bento-card p-8">
+          <ul class="space-y-4 text-muted">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Privacy-sensitive work</strong> — Everything runs locally, ideal for confidential data</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Model exploration</strong> — Easy to try different GGUF models from Hugging Face</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Development and testing</strong> — Local API server for app development without cloud costs</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Offline environments</strong> — Works without internet after models are downloaded</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Integration -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Using LM Studio with Evvl</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>Download LM Studio from <a href="https://lmstudio.ai" target="_blank" rel="noopener" class="text-accent hover:underline">lmstudio.ai</a>, then download and load your desired models.</p>
+          <p><strong class="text-primary">Desktop App:</strong> Start LM Studio's local server, then configure Evvl to connect to its API endpoint. No API key needed.</p>
+          <p><strong class="text-primary">Web App:</strong> LM Studio isn't available in the web app due to CORS restrictions. Use the desktop app for local models.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bento-card p-8 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">Compare local vs cloud models</h3>
+        <p class="text-muted mb-6">See how local models compare to GPT-4o, Claude, and Gemini on your specific tasks.</p>
+        <a href="/download" class="btn-primary inline-flex items-center gap-2">
+          Download Desktop App
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>

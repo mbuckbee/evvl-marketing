@@ -1,0 +1,76 @@
+---
+// Footer component - use on all pages
+---
+
+<footer class="py-16 px-6 border-t border-light">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-5 gap-12 mb-16">
+      <div class="md:col-span-2">
+        <a href="/" class="text-2xl font-bold text-primary tracking-tight mb-4 block">evvl</a>
+        <p class="text-faint max-w-xs">Compare AI models side by side. Find the best model for your specific use case.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-primary mb-4">Providers</h4>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="/eval/openai" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/chatgpt.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/chatgpt.svg" alt="" class="h-4 w-4 logo-light" />
+              OpenAI            </a>
+          </li>
+          <li>
+            <a href="/eval/anthropic" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/claude.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/claude.svg" alt="" class="h-4 w-4 logo-light" />
+              Anthropic            </a>
+          </li>
+          <li>
+            <a href="/eval/google" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/gemini.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/gemini.svg" alt="" class="h-4 w-4 logo-light" />
+              Google            </a>
+          </li>
+          <li>
+            <a href="/eval/openrouter" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/openrouter.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/openrouter.svg" alt="" class="h-4 w-4 logo-light" />
+              OpenRouter            </a>
+          </li>
+          <li>
+            <a href="/eval/ollama" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/ollama.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/ollama.svg" alt="" class="h-4 w-4 logo-light" />
+              Ollama            </a>
+          </li>
+          <li>
+            <a href="/eval/lm-studio" class="text-faint hover:text-primary transition-colors inline-flex items-center gap-2">
+              <img src="/logos/dark/lmstudio.svg" alt="" class="h-4 w-4 logo-dark" />
+              <img src="/logos/light/lmstudio.svg" alt="" class="h-4 w-4 logo-light" />
+              LM Studio            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-primary mb-4">Resources</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/#features" class="text-faint hover:text-primary transition-colors">Features</a></li>
+          <li><a href="/#how-it-works" class="text-faint hover:text-primary transition-colors">How It Works</a></li>
+          <li><a href="/download" class="text-faint hover:text-primary transition-colors">Download</a></li>
+          <li><a href="/keys-and-calls" class="text-faint hover:text-primary transition-colors">Keys & Calls</a></li>
+          <li><a href="/#faq" class="text-faint hover:text-primary transition-colors">FAQ</a></li>
+          <li><a href="https://github.com/mbuckbee/evvl" class="text-faint hover:text-primary transition-colors">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-primary mb-4">Legal</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/privacy" class="text-faint hover:text-primary transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-faint hover:text-primary transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-light text-center text-faint text-sm">
+      &copy; {new Date().getFullYear()} Evvl. All rights reserved.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="OpenAI Models - Evvl" description="Compare and evaluate OpenAI's GPT-4, GPT-4o, o1, and other models with Evvl.">
+  <Nav />
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logos/dark/chatgpt.svg" alt="" class="h-12 logo-dark" />
+        <img src="/logos/light/chatgpt.svg" alt="" class="h-12 logo-light" />
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">OpenAI</h1>
+      </div>
+      <p class="text-xl text-muted mb-12">Evaluate GPT-4, GPT-4o, o1, and other OpenAI models side by side.</p>
+
+      <!-- Key Models -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Available Models</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">GPT-4o</h3>
+            <p class="text-muted text-sm mb-4">OpenAI's flagship multimodal model. Fast, capable, and cost-effective for most use cases.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Multimodal</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">128K Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">GPT-4o-mini</h3>
+            <p class="text-muted text-sm mb-4">Smaller, faster, and cheaper. Often outperforms GPT-4o on specific tasks.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Cost-Effective</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">128K Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">o1</h3>
+            <p class="text-muted text-sm mb-4">Reasoning model that thinks before responding. Best for complex problem-solving.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Reasoning</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">200K Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">o1-mini</h3>
+            <p class="text-muted text-sm mb-4">Faster reasoning model optimized for STEM tasks and coding.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Reasoning</span>
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Cost-Effective</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best For -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Best For</h2>
+        <div class="bento-card p-8">
+          <ul class="space-y-4 text-muted">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">General-purpose tasks</strong> — GPT-4o handles most prompts well out of the box</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Code generation</strong> — Strong performance across languages and frameworks</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Complex reasoning</strong> — o1 models excel at multi-step problems</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Function calling</strong> — Reliable structured output and tool use</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Integration -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Using OpenAI with Evvl</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>To use OpenAI models in Evvl, you'll need an API key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-accent hover:underline">platform.openai.com</a>.</p>
+          <p><strong class="text-primary">Web App:</strong> OpenAI calls are proxied through our servers due to CORS restrictions. Your API key is never stored—it's only used for the request and immediately discarded.</p>
+          <p><strong class="text-primary">Desktop App:</strong> All calls go directly to OpenAI's API with no intermediary.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bento-card p-8 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">Start comparing OpenAI models</h3>
+        <p class="text-muted mb-6">See how GPT-4o stacks up against GPT-4o-mini, o1, and other providers.</p>
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
+          Try Evvl Free
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>

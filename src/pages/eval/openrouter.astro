@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="OpenRouter Models - Evvl" description="Access 1,000+ AI models from multiple providers through OpenRouter with a single API key.">
+  <Nav />
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logos/dark/openrouter.svg" alt="" class="h-12 logo-dark" />
+        <img src="/logos/light/openrouter.svg" alt="" class="h-12 logo-light" />
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">OpenRouter</h1>
+      </div>
+      <p class="text-xl text-muted mb-12">One API key, 1,000+ models. Access every major AI provider through a unified interface.</p>
+
+      <!-- Key Features -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Available Providers</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Frontier Models</h3>
+            <p class="text-muted text-sm mb-4">GPT-4o, Claude 3.5 Sonnet, Gemini Pro, and other top-tier models.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">OpenAI</span>
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Anthropic</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">Google</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Open Source Models</h3>
+            <p class="text-muted text-sm mb-4">Llama 3.1, Mistral, Qwen, and hundreds of community models.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Meta</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">Mistral</span>
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Alibaba</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Specialized Models</h3>
+            <p class="text-muted text-sm mb-4">Coding assistants, image generators, and task-specific models.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">DeepSeek</span>
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Cohere</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Budget Options</h3>
+            <p class="text-muted text-sm mb-4">Free tiers and low-cost models for experimentation and high-volume use.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Free Tier</span>
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Pay-per-use</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best For -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Best For</h2>
+        <div class="bento-card p-8">
+          <ul class="space-y-4 text-muted">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Model exploration</strong> — Try 1,000+ models without signing up for each provider</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Unified billing</strong> — One account, one invoice for all model usage</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Fallback routing</strong> — Automatic failover if a provider is down</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Price comparison</strong> — See costs across providers for the same model</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Integration -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Using OpenRouter with Evvl</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>Get an API key from <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="text-accent hover:underline">openrouter.ai</a>. Free credits are available for new users.</p>
+          <p><strong class="text-primary">Web App:</strong> OpenRouter enables CORS, so calls go directly from your browser—no proxy needed.</p>
+          <p><strong class="text-primary">Desktop App:</strong> All calls go directly to OpenRouter's API.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bento-card p-8 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">Compare 1,000+ models</h3>
+        <p class="text-muted mb-6">Find the perfect model for your task by testing across providers.</p>
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
+          Try Evvl Free
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Google Gemini Models - Evvl" description="Compare and evaluate Google's Gemini Pro, Gemini Flash, and other Gemini models with Evvl.">
+  <Nav />
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/logos/dark/gemini.svg" alt="" class="h-12 logo-dark" />
+        <img src="/logos/light/gemini.svg" alt="" class="h-12 logo-light" />
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">Google Gemini</h1>
+      </div>
+      <p class="text-xl text-muted mb-12">Evaluate Gemini Pro, Gemini Flash, and other Google AI models side by side.</p>
+
+      <!-- Key Models -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Available Models</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Gemini 1.5 Pro</h3>
+            <p class="text-muted text-sm mb-4">Google's most capable model with industry-leading context window.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Most Capable</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">1M+ Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Gemini 1.5 Flash</h3>
+            <p class="text-muted text-sm mb-4">Fast and efficient. Great for high-volume tasks with excellent price/performance.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs">Fastest</span>
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">Best Value</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Gemini 2.0 Flash</h3>
+            <p class="text-muted text-sm mb-4">Next-generation Flash model with improved reasoning and capabilities.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs">New</span>
+              <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">1M Context</span>
+            </div>
+          </div>
+          <div class="bento-card p-6">
+            <h3 class="text-lg font-semibold text-primary mb-2">Gemini 1.0 Pro</h3>
+            <p class="text-muted text-sm mb-4">Previous generation model. Still capable for many standard tasks.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 rounded-full bg-gray-500/10 text-gray-600 dark:text-gray-400 text-xs">Legacy</span>
+              <span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs">Cost-Effective</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best For -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Best For</h2>
+        <div class="bento-card p-8">
+          <ul class="space-y-4 text-muted">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Long document analysis</strong> — 1M+ token context handles entire codebases or books</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Multimodal tasks</strong> — Native support for images, video, and audio</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">High-volume processing</strong> — Flash models offer excellent throughput at low cost</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong class="text-primary">Structured output</strong> — Reliable JSON mode for data extraction</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Integration -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Using Gemini with Evvl</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>To use Gemini models in Evvl, you'll need an API key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="text-accent hover:underline">Google AI Studio</a>.</p>
+          <p><strong class="text-primary">Web App:</strong> Google enables CORS for their API, so calls go directly from your browser to Google—no proxy needed.</p>
+          <p><strong class="text-primary">Desktop App:</strong> All calls go directly to Google's API.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="bento-card p-8 text-center bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent !border-[var(--color-accent)]/20">
+        <h3 class="text-2xl font-bold text-primary mb-3">Start comparing Gemini models</h3>
+        <p class="text-muted mb-6">See how Gemini Pro compares to Claude, GPT-4o, and open-source alternatives.</p>
+        <a href="https://app.evvl.ai" class="btn-primary inline-flex items-center gap-2">
+          Try Evvl Free
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
